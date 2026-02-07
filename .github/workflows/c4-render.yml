@@ -1,0 +1,180 @@
+# CI Rendering Pipeline — SPIKE / Proof of Concept
+#
+# Purpose: Validate that Structurizr CLI can render workspace.dsl → diagrams
+#          in GitHub Actions and deploy to GitHub Pages.
+#
+# Status: POC — not production-ready. See ADR-001 for decision context.
+#
+# Trigger: Changes to c4/workspace.dsl or docs/architecture/
+
+name: C4 Architecture Render
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'c4/**'
+      - 'docs/architecture/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'c4/**'
+      - 'docs/architecture/**'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  validate-dsl:
+    name: Validate Structurizr DSL
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Structurizr CLI
+        run: |
+          curl -L -o structurizr-cli.zip \
+            https://github.com/structurizr/cli/releases/download/v2024.09.03/structurizr-cli.zip
+          unzip structurizr-cli.zip -d structurizr-cli
+          echo "$PWD/structurizr-cli" >> $GITHUB_PATH
+
+      - name: Validate workspace.dsl
+        run: |
+          structurizr-cli validate -workspace c4/workspace.dsl
+
+  validate-mermaid:
+    name: Validate Mermaid Diagrams
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Mermaid CLI
+        run: npm install -g @mermaid-js/mermaid-cli
+
+      - name: Extract and validate Mermaid blocks
+        run: |
+          # Extract mermaid code blocks from architecture index and validate each
+          python3 - <<'EOF'
+          import re, subprocess, sys, tempfile, os
+
+          files = [
+              "docs/architecture/index.md",
+          ]
+
+          errors = 0
+          for filepath in files:
+              if not os.path.exists(filepath):
+                  print(f"SKIP: {filepath} not found")
+                  continue
+
+              with open(filepath) as f:
+                  content = f.read()
+
+              blocks = re.findall(r'```mermaid\n(.*?)```', content, re.DOTALL)
+              print(f"Found {len(blocks)} mermaid blocks in {filepath}")
+
+              for i, block in enumerate(blocks):
+                  with tempfile.NamedTemporaryFile(mode='w', suffix='.mmd', delete=False) as tmp:
+                      tmp.write(block)
+                      tmp_path = tmp.name
+
+                  out_path = tmp_path.replace('.mmd', '.svg')
+                  result = subprocess.run(
+                      ['mmdc', '-i', tmp_path, '-o', out_path, '-q'],
+                      capture_output=True, text=True
+                  )
+
+                  if result.returncode != 0:
+                      print(f"ERROR: Block {i+1} in {filepath} failed:")
+                      print(result.stderr)
+                      errors += 1
+                  else:
+                      print(f"  OK: Block {i+1}")
+
+                  os.unlink(tmp_path)
+                  if os.path.exists(out_path):
+                      os.unlink(out_path)
+
+          if errors:
+              print(f"\n{errors} mermaid block(s) failed validation")
+              sys.exit(1)
+          else:
+              print("\nAll mermaid blocks valid")
+          EOF
+
+  check-repo-completeness:
+    name: Verify Repo Completeness
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check all org repos are in DSL
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'EOF'
+          import subprocess, json, sys
+
+          # Get all non-archived repos from the org
+          result = subprocess.run(
+              ['gh', 'api', '/orgs/vindicta-platform/repos', '--paginate', '-q',
+               '[.[] | select(.archived == false) | .name]'],
+              capture_output=True, text=True
+          )
+
+          if result.returncode != 0:
+              print(f"Warning: Could not fetch org repos (expected in forks/PRs)")
+              print(result.stderr)
+              sys.exit(0)  # Non-blocking for now
+
+          repos = json.loads(result.stdout)
+
+          # Read the DSL file
+          with open('c4/workspace.dsl') as f:
+              dsl = f.read()
+
+          missing = []
+          for repo in repos:
+              # Check if repo name appears as a container in the DSL
+              if repo not in dsl:
+                  missing.append(repo)
+
+          if missing:
+              print(f"WARNING: {len(missing)} repo(s) not found in workspace.dsl:")
+              for r in missing:
+                  print(f"  - {r}")
+              # Non-blocking warning for now — will become error in V2
+              # sys.exit(1)
+          else:
+              print(f"All {len(repos)} active repos present in workspace.dsl")
+          EOF
+
+  # Future: deploy job for GitHub Pages
+  # deploy:
+  #   needs: [validate-dsl, validate-mermaid, check-repo-completeness]
+  #   if: github.ref == 'refs/heads/main'
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Setup Pages
+  #       uses: actions/configure-pages@v4
+  #     - name: Upload artifact
+  #       uses: actions/upload-pages-artifact@v3
+  #       with:
+  #         path: 'docs/'
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
