@@ -12,9 +12,13 @@
         <meta name="author" content="Vindicta Platform Contributors">
       
       
-        <link rel="canonical" href="https://vindicta-platform.github.io/Platform-Docs/adr/0002-require/">
+        <link rel="canonical" href="https://vindicta-platform.github.io/Platform-Docs/architecture/c4-model/">
       
       
+        <link rel="prev" href="../overview/">
+      
+      
+        <link rel="next" href="../modules/">
       
       
         
@@ -25,7 +29,7 @@
     
     
       
-        <title>2. Require AI-assisted coding for platform development - Vindicta Platform</title>
+        <title>C4 Model - Vindicta Platform</title>
       
     
     
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#2-require-ai-assisted-coding-for-platform-development" class="md-skip">
+        <a href="#c4-system-architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2. Require AI-assisted coding for platform development
+              C4 Model
             
           </span>
         </div>
@@ -278,11 +282,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../architecture/overview/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
           
   
   
@@ -567,28 +573,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -606,7 +615,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -624,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   
@@ -649,10 +658,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../architecture/c4-model/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C4 Model
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -668,6 +704,37 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#workspace-dsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workspace DSL
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -680,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/modules/" class="md-nav__link">
+      <a href="../modules/" class="md-nav__link">
         
   
   
@@ -708,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/cost-model/" class="md-nav__link">
+      <a href="../cost-model/" class="md-nav__link">
         
   
   
@@ -1308,124 +1375,274 @@
   
 
 
-<h1 id="2-require-ai-assisted-coding-for-platform-development">2. Require AI-assisted coding for platform development<a class="headerlink" href="#2-require-ai-assisted-coding-for-platform-development" title="Permanent link">&para;</a></h1>
-<p>Date: 2026-02-05</p>
-<h2 id="status">Status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h2>
-<p>Accepted</p>
-<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
-<p>The Vindicta Platform's 6-week roadmap (Feb 4 - Mar 17, 2026) has aggressive velocity targets:
-- 20 repositories requiring coordinated development
-- Week 1: Foundation scaffolds across 4 priority products (Agent-Auditor-SDK, WARScribe-Core, Primordia-AI, Vindicta-Portal)
-- Week 6: v1.0 production releases for 3 products
-- Daily schedule includes multiple PRs across repositories (e.g., Feb 4 had 4 PRs merged)</p>
-<p>The platform architecture includes an agentic ecosystem with defined roles:
-- <strong>Senior Manager</strong>: Orchestrates platform health and cross-team coordination
-- <strong>Agile Delivery Lead</strong>: Executes <code>/adl-standup</code> and <code>/adl-pr-review</code> daily
-- <strong>Product Owner</strong>: Manages <code>/po-sprint-planning</code> and <code>/po-roadmap-update</code></p>
-<p>These agents require AI coding capabilities to execute their workflows autonomously.</p>
-<p>Additionally, the Platform Constitution mandates:
-- <strong>Article II</strong>: Gemini as the AI engine (Gas Tank Model)
-- <strong>Article XVI</strong>: Async-First development for LLM orchestrations
-- <strong>Agent-Auditor-SDK</strong>: Implements rate limiting and priority queuing for AI requests</p>
-<p><strong>Question</strong>: Given the roadmap velocity requirements and agentic architecture, should AI-assisted coding be mandatory?</p>
-<h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
-<p><strong>AI-assisted coding is REQUIRED for all Vindicta Platform development.</strong></p>
-<p>All development work MUST use approved AI coding tools:
-- <strong>Antigravity</strong> (primary AI coding assistant)
-- <strong>GitHub Copilot</strong> (code completion and reviews)
-- <strong>Agent-Auditor-SDK</strong> (agentic task orchestration)
-- <strong>Gemini AI Studio</strong> (direct API access for agents)</p>
-<h3 id="enforcement-mechanisms">Enforcement Mechanisms<a class="headerlink" href="#enforcement-mechanisms" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Rate Limiting</strong>: Agent-Auditor-SDK <code>RateLimiter</code> class enforces Gemini free tier limits (60 RPM, 60K TPM)</li>
-<li><strong>Gas Tank Model</strong>: AI requests MUST call <code>acquire()</code> before API calls, respecting quota limits</li>
-<li><strong>Priority Queue</strong>: Human requests prioritized over agent background work</li>
-<li><strong>Cost Controls</strong>: Operations stop immediately when quota exhausted (Constitution I compliance)</li>
-</ol>
-<h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
-<h3 id="positive">Positive<a class="headerlink" href="#positive" title="Permanent link">&para;</a></h3>
-<ul>
-<li>✅ <strong>Enables 6-week roadmap delivery</strong>: Manual development cannot achieve required velocity</li>
-<li>✅ <strong>Supports agent workflows</strong>: ADL/PO/SM agents can execute autonomously</li>
-<li>✅ <strong>Parallelizes development</strong>: Multiple PRs per day across repositories (demonstrated in Week 1 with 6 PRs merged)</li>
-<li>✅ <strong>Free tier compliant</strong>: Rate limiting prevents quota overages</li>
-<li>✅ <strong>Consistent with architecture</strong>: Leverages Agent-Auditor-SDK and Gemini API</li>
-</ul>
-<h3 id="negative">Negative<a class="headerlink" href="#negative" title="Permanent link">&para;</a></h3>
-<ul>
-<li>⚠️ <strong>API quota dependency</strong>: Platform velocity limited by Gemini free tier (mitigated by rate limiting)</li>
-<li>⚠️ <strong>Agent maturity risk</strong>: Requires Agent-Auditor-SDK stability (Week 1 PR #12 completed this)</li>
-<li>⚠️ <strong>Learning curve</strong>: Developers must adopt AI-first workflows (addressed by agent AGENT.md documentation)</li>
-</ul>
-<h3 id="neutral">Neutral<a class="headerlink" href="#neutral" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Agent workflows become the default interaction model</li>
-<li>Human intervention required for architecture reviews and release approvals</li>
-<li>Manual development remains possible but discouraged</li>
-</ul>
-<h2 id="alternatives-considered">Alternatives Considered<a class="headerlink" href="#alternatives-considered" title="Permanent link">&para;</a></h2>
-<h3 id="alternative-1-no-ai-assistance-manual-only">Alternative 1: No AI Assistance (Manual Only)<a class="headerlink" href="#alternative-1-no-ai-assistance-manual-only" title="Permanent link">&para;</a></h3>
-<p><strong>Rationale</strong>: Maximum human control, zero AI costs</p>
-<p><strong>Rejected because</strong>:
-- Cannot meet 6-week timeline
-- Single-threaded development (no parallelization)
-- Invalidates agentic ecosystem architecture
-- Contradicts Constitution Article II (Gemini mandate)</p>
-<h3 id="alternative-2-optional-ai-assistance">Alternative 2: Optional AI Assistance<a class="headerlink" href="#alternative-2-optional-ai-assistance" title="Permanent link">&para;</a></h3>
-<p><strong>Rationale</strong>: Flexibility for developers, can be enabled per-project</p>
-<p><strong>Rejected because</strong>:
-- Inconsistent velocity across repositories
-- Schedule uncertainty
-- Undermines agent autonomy
-- Doesn't leverage platform architecture</p>
-<h2 id="compliance">Compliance<a class="headerlink" href="#compliance" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Constitution Article</th>
-<th>How This Decision Complies</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>I. Economic Prime Directive</td>
-<td>Free tier enforced via <code>RateLimiter</code> (60 RPM/TPM limits)</td>
-</tr>
-<tr>
-<td>II. Gas Tank Model</td>
-<td><code>acquire()</code> method implements gas tank for Gemini API</td>
-</tr>
-<tr>
-<td>III. Spec-Driven Methodology</td>
-<td>Specs remain human-authored; code AI-generated from specs</td>
-</tr>
-<tr>
-<td>V. Agentic Rights &amp; Responsibilities</td>
-<td>Formalizes AI assistants as first-class development participants</td>
-</tr>
-<tr>
-<td>XVI. Async-First Mandate</td>
-<td>AI tools enable concurrent development across repositories</td>
-</tr>
-</tbody>
-</table>
-<h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h2>
-<p>Week 1 demonstrated successful AI-assisted development:
-- <strong>6 PRs merged</strong> in 2 days (Feb 4-5)
-- <strong>Agent-Auditor-SDK PR #12</strong>: Rate limiting prevents 429 errors
-- <strong>WARScribe-Core PR #8</strong>: Edition abstraction with tests
-- <strong>Primordia-AI PR #6</strong>: DuckDB schema implementation
-- <strong>Vindicta-Portal PR #21, #22</strong>: Firebase config + design tokens
-- <strong>Platform-Docs PR #2</strong>: Branding updates</p>
-<p>All implementations approved by architecture review with 100% Constitution compliance.</p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="file:///.specify/memory/constitution.md">Platform Constitution v2.7.0</a></li>
-<li><a href="https://github.com/vindicta-platform/Agent-Auditor-SDK/pull/12">Agent-Auditor-SDK Rate Limiter PR #12</a></li>
-<li><a href="file:///C:/Users/bfoxt/.gemini/antigravity/brain/15a9e296-a3eb-4686-89ec-bdd29f3b1d67/architecture_review_week1.md">Architecture Review - Week 1</a></li>
-<li><a href="https://github.com/vindicta-platform/.github/blob/main/ROADMAP.md">6-Week Roadmap Schedule</a></li>
-<li><a href="https://github.com/vindicta-platform/Vindicta-Agents/blob/main/agents/shared/TEAM_CHARTER.md">Agent Team Charter v2.1</a></li>
-</ul>
+<h1 id="c4-system-architecture">C4 System Architecture<a class="headerlink" href="#c4-system-architecture" title="Permanent link">&para;</a></h1>
+<p>The <strong>Vindicta Platform</strong> architecture is defined using the <a href="https://c4model.com/">C4 Model</a> and managed as code using <a href="https://structurizr.com/dsl">Structurizr DSL</a>.</p>
+<p>This model serves as the canonical source of truth for all system containers, relationships, and component boundaries.</p>
+<h2 id="workspace-dsl">Workspace DSL<a class="headerlink" href="#workspace-dsl" title="Permanent link">&para;</a></h2>
+<p>The following DSL definition resides in <code>c4/workspace.dsl</code> and can be rendered using Structurizr Lite or CLI.</p>
+<div class="highlight"><pre><span></span><code>workspace &quot;Vindicta Platform&quot; &quot;C4 Architecture Model for the unified competitive Warhammer 40k platform.&quot; {
+
+    !identifiers hierarchical
+
+    model {
+        # ─────────────────────────────────────────────
+        # External Actors
+        # ─────────────────────────────────────────────
+        player = person &quot;Competitive Player&quot; &quot;Warhammer 40k player who builds lists, tracks matches, and analyzes the meta.&quot;
+        tournamentOrganizer = person &quot;Tournament Organizer&quot; &quot;Runs events, manages pairings, and reviews results.&quot;
+        platformAdmin = person &quot;Platform Admin&quot; &quot;Maintains infrastructure, monitors health, and evolves the platform.&quot;
+
+        # ─────────────────────────────────────────────
+        # External Systems
+        # ─────────────────────────────────────────────
+        gcp = softwareSystem &quot;Google Cloud Platform&quot; &quot;Hosting, databases, and cloud services.&quot; &quot;External&quot;
+        github = softwareSystem &quot;GitHub&quot; &quot;Source control, CI/CD, and project management.&quot; &quot;External&quot;
+
+        # ─────────────────────────────────────────────
+        # Vindicta Platform
+        # ─────────────────────────────────────────────
+        vindicta = softwareSystem &quot;Vindicta Platform&quot; &quot;Unified competitive Warhammer 40k platform for army management, match tracking, meta analysis, and AI predictions.&quot; {
+
+            # ═══════════════════════════════════════════
+            # DOMAIN: Presentation
+            # User-facing interfaces and entry points
+            # ═══════════════════════════════════════════
+            group &quot;Presentation&quot; {
+                portal = container &quot;Vindicta-Portal&quot; &quot;Web portal for players — static site hosted on GCP.&quot; &quot;HTML/JS&quot; &quot;Web Browser&quot;
+                logiSlateUI = container &quot;Logi-Slate-UI&quot; &quot;React/Tailwind component library implementing the Vindicta design system.&quot; &quot;React, TypeScript, Tailwind&quot;
+                vindictaCLI = container &quot;Vindicta-CLI&quot; &quot;Unified command-line interface for developers and power users.&quot; &quot;Python, Click&quot;
+                vindictaAPI = container &quot;Vindicta-API&quot; &quot;REST API gateway — FastAPI endpoints exposing platform services.&quot; &quot;Python, FastAPI&quot;
+            }
+
+            # ═══════════════════════════════════════════
+            # DOMAIN: Game Simulation
+            # Deterministic game mechanics
+            # ═══════════════════════════════════════════
+            group &quot;Game Simulation&quot; {
+                diceEngine = container &quot;Dice-Engine&quot; &quot;CSPRNG dice roller with entropy proofs and cryptographic fairness guarantees.&quot; &quot;Python&quot;
+                entropyBuffer = container &quot;Entropy-Buffer&quot; &quot;Thread-safe, buffered entropy management for reliable RNG seeding.&quot; &quot;Python&quot;
+            }
+
+            # ═══════════════════════════════════════════
+            # DOMAIN: Game Notation
+            # Structured game transcription and parsing
+            # ═══════════════════════════════════════════
+            group &quot;Game Notation&quot; {
+                warscribeCore = container &quot;WARScribe-Core&quot; &quot;Wargame Notation System (WNS) action notation engine.&quot; &quot;Python&quot;
+                warscribeParser = container &quot;WARScribe-Parser&quot; &quot;High-level parsing library for WNS transcripts.&quot; &quot;Python&quot;
+                warscribeCLI = container &quot;WARScribe-CLI&quot; &quot;CLI tools for local wargame transcript ingestion.&quot; &quot;Python&quot;
+                battleTranscriptToolkit = container &quot;Battle-Transcript-Toolkit&quot; &quot;Markdown tools for complex agent transcript handling.&quot; &quot;Python&quot;
+            }
+
+            # ═══════════════════════════════════════════
+            # DOMAIN: Analytics
+            # Meta analysis and prediction
+            # ═══════════════════════════════════════════
+            group &quot;Analytics&quot; {
+                metaOracle = container &quot;Meta-Oracle&quot; &quot;AI debate engine for meta analysis and prediction.&quot; &quot;Python&quot;
+            }
+
+            # ═══════════════════════════════════════════
+            # DOMAIN: Primordia
+            # Deterministic tactical AI and evaluation
+            # ═══════════════════════════════════════════
+            group &quot;Primordia&quot; {
+                primordiaAI = container &quot;Primordia-AI&quot; &quot;Deterministic tactical AI engine — the Stockfish of Warhammer.&quot; &quot;Python&quot;
+                arbiterPredictor = container &quot;Arbiter-Predictor&quot; &quot;Statistical library for win probability calculations.&quot; &quot;Python&quot;
+            }
+
+            # ═══════════════════════════════════════════
+            # DOMAIN: Platform Services
+            # Shared primitives, metering, and compliance
+            # ═══════════════════════════════════════════
+            group &quot;Platform Services&quot; {
+                vindictaCore = container &quot;Vindicta-Core&quot; &quot;Shared primitives, configuration, and interfaces used across all modules.&quot; &quot;Python&quot;
+                economyEngine = container &quot;Economy-Engine&quot; &quot;Gas Tank, Atomic Ledger, and Usage Meter — resource consumption and cost model.&quot; &quot;Python&quot;
+                quotaManager = container &quot;Quota-Manager&quot; &quot;Usage tracking, quota enforcement, and consumption prediction.&quot; &quot;Python&quot;
+                meteredSaaSLogic = container &quot;Metered-SaaS-Logic&quot; &quot;Dynamic usage metering and pricing multiplier logic.&quot; &quot;Python&quot;
+                auditLogPro = container &quot;Audit-Log-Pro&quot; &quot;Dual-sink transactional audit logging system.&quot; &quot;Python&quot;
+                atomicLedgerPy = container &quot;Atomic-Ledger-Py&quot; &quot;Lightweight atomic ledger pattern implementation for transactional integrity.&quot; &quot;Python&quot;
+                agentAuditorSDK = container &quot;Agent-Auditor-SDK&quot; &quot;Framework for Mechanical Auditor agents — compliance verification.&quot; &quot;Python&quot;
+            }
+
+            # ═══════════════════════════════════════════
+            # DOMAIN: Developer Experience
+            # Tooling, docs, agents, and org config
+            # ═══════════════════════════════════════════
+            group &quot;Developer Experience&quot; {
+                platformDocs = container &quot;Platform-Docs&quot; &quot;MkDocs Material documentation site — platform-wide architecture, guides, and ADRs.&quot; &quot;MkDocs, Markdown&quot;
+                dotGithub = container &quot;.github&quot; &quot;Organization-wide GitHub configuration, templates, issue forms, and roadmap.&quot; &quot;YAML, Markdown&quot;
+                dotSpecify = container &quot;.specify&quot; &quot;Specification-Driven Development (SDD) constitution and memory.&quot; &quot;Markdown&quot;
+                dotAgent = container &quot;.agent&quot; &quot;Organization-wide agent workflows and automation definitions.&quot; &quot;Markdown, YAML&quot;
+                vindictaAgents = container &quot;Vindicta-Agents&quot; &quot;Dev container images and agent runtime environments.&quot; &quot;Docker, PowerShell&quot;
+            }
+        }
+
+        # ─────────────────────────────────────────────
+        # Relationships: Actors → System
+        # ─────────────────────────────────────────────
+        player -&gt; vindicta &quot;Uses&quot; &quot;HTTPS, CLI&quot;
+        tournamentOrganizer -&gt; vindicta &quot;Manages tournaments via&quot; &quot;HTTPS&quot;
+        platformAdmin -&gt; vindicta &quot;Administers and evolves&quot; &quot;CLI, GitHub&quot;
+
+        # ─────────────────────────────────────────────
+        # Relationships: Actors → Containers
+        # ─────────────────────────────────────────────
+        player -&gt; vindicta.portal &quot;Browses army lists, matches, meta&quot; &quot;HTTPS&quot;
+        player -&gt; vindicta.vindictaCLI &quot;Power-user game management&quot; &quot;Terminal&quot;
+        tournamentOrganizer -&gt; vindicta.portal &quot;Manages events&quot; &quot;HTTPS&quot;
+        platformAdmin -&gt; vindicta.vindictaCLI &quot;Platform operations&quot; &quot;Terminal&quot;
+        platformAdmin -&gt; vindicta.platformDocs &quot;Reads and evolves architecture&quot; &quot;HTTPS&quot;
+
+        # ─────────────────────────────────────────────
+        # Relationships: Containers → Containers
+        # ─────────────────────────────────────────────
+
+        # Presentation → Backend
+        vindicta.portal -&gt; vindicta.vindictaAPI &quot;Calls&quot; &quot;REST/JSON&quot;
+        vindicta.portal -&gt; vindicta.logiSlateUI &quot;Uses components from&quot; &quot;&quot;
+        vindicta.vindictaCLI -&gt; vindicta.vindictaAPI &quot;Calls&quot; &quot;REST/JSON&quot;
+
+        # API → Domain Services
+        vindicta.vindictaAPI -&gt; vindicta.vindictaCore &quot;Uses shared primitives&quot; &quot;&quot;
+        vindicta.vindictaAPI -&gt; vindicta.diceEngine &quot;Requests dice rolls&quot; &quot;&quot;
+        vindicta.vindictaAPI -&gt; vindicta.economyEngine &quot;Tracks resource usage&quot; &quot;&quot;
+        vindicta.vindictaAPI -&gt; vindicta.metaOracle &quot;Requests predictions&quot; &quot;&quot;
+        vindicta.vindictaAPI -&gt; vindicta.warscribeCore &quot;Processes game notation&quot; &quot;&quot;
+        vindicta.vindictaAPI -&gt; vindicta.quotaManager &quot;Enforces usage quotas&quot; &quot;&quot;
+
+        # Game Simulation internals
+        vindicta.diceEngine -&gt; vindicta.entropyBuffer &quot;Seeds RNG from&quot; &quot;&quot;
+        vindicta.economyEngine -&gt; vindicta.atomicLedgerPy &quot;Uses atomic ledger pattern&quot; &quot;&quot;
+        vindicta.economyEngine -&gt; vindicta.meteredSaaSLogic &quot;Applies pricing multipliers&quot; &quot;&quot;
+
+        # Game Notation internals
+        vindicta.warscribeParser -&gt; vindicta.warscribeCore &quot;Parses WNS via&quot; &quot;&quot;
+        vindicta.warscribeCLI -&gt; vindicta.warscribeParser &quot;Uses&quot; &quot;&quot;
+        vindicta.battleTranscriptToolkit -&gt; vindicta.warscribeCore &quot;Processes transcripts via&quot; &quot;&quot;
+
+        # Analytics internals
+        vindicta.metaOracle -&gt; vindicta.arbiterPredictor &quot;Uses win probability from&quot; &quot;&quot;
+        vindicta.metaOracle -&gt; vindicta.warscribeCore &quot;Reads game notation via&quot; &quot;&quot;
+        vindicta.primordiaAI -&gt; vindicta.diceEngine &quot;Simulates outcomes via&quot; &quot;&quot;
+        vindicta.primordiaAI -&gt; vindicta.arbiterPredictor &quot;Evaluates positions via&quot; &quot;&quot;
+
+        # Platform Services internals
+        vindicta.quotaManager -&gt; vindicta.meteredSaaSLogic &quot;Uses metering logic from&quot; &quot;&quot;
+        vindicta.agentAuditorSDK -&gt; vindicta.auditLogPro &quot;Writes audit trails to&quot; &quot;&quot;
+
+        # Cross-cutting dependencies
+        vindicta.vindictaCLI -&gt; vindicta.vindictaCore &quot;Uses shared primitives&quot; &quot;&quot;
+
+        # External system relationships
+        vindicta.portal -&gt; gcp &quot;Hosted on&quot; &quot;Cloud Run / GCS&quot;
+        vindicta.vindictaAPI -&gt; gcp &quot;Deployed to&quot; &quot;Cloud Run&quot;
+        vindicta.vindictaAgents -&gt; github &quot;Builds via&quot; &quot;GitHub Actions&quot;
+        vindicta.platformDocs -&gt; github &quot;Published via&quot; &quot;GitHub Pages&quot;
+        vindicta.dotGithub -&gt; github &quot;Configures&quot; &quot;Org settings&quot;
+    }
+
+    views {
+        # ─────────────────────────────────────────────
+        # Level 1: System Context
+        # ─────────────────────────────────────────────
+        systemContext vindicta &quot;SystemContext&quot; {
+            include *
+            autoLayout
+            description &quot;Level 1 — Vindicta Platform in its environment: users and external systems.&quot;
+        }
+
+        # ─────────────────────────────────────────────
+        # Level 2: Container Overview
+        # ─────────────────────────────────────────────
+        container vindicta &quot;Containers&quot; {
+            include *
+            autoLayout
+            description &quot;Level 2 — All containers grouped by functional domain.&quot;
+        }
+
+        # ─────────────────────────────────────────────
+        # Level 2: Domain-Focused Views
+        # ─────────────────────────────────────────────
+        container vindicta &quot;Presentation&quot; {
+            include vindicta.portal vindicta.logiSlateUI vindicta.vindictaCLI vindicta.vindictaAPI
+            include vindicta.vindictaCore
+            include player tournamentOrganizer platformAdmin
+            autoLayout
+            description &quot;Level 2 — Presentation domain: user-facing interfaces and API gateway.&quot;
+        }
+
+        container vindicta &quot;GameSimulation&quot; {
+            include vindicta.diceEngine vindicta.entropyBuffer
+            include vindicta.vindictaAPI
+            autoLayout
+            description &quot;Level 2 — Game Simulation domain: dice and entropy.&quot;
+        }
+
+        container vindicta &quot;GameNotation&quot; {
+            include vindicta.warscribeCore vindicta.warscribeParser vindicta.warscribeCLI vindicta.battleTranscriptToolkit
+            include vindicta.vindictaAPI
+            autoLayout
+            description &quot;Level 2 — Game Notation domain: WARScribe and transcript processing.&quot;
+        }
+
+        container vindicta &quot;Analytics&quot; {
+            include vindicta.metaOracle
+            include vindicta.warscribeCore vindicta.arbiterPredictor
+            include vindicta.vindictaAPI
+            autoLayout
+            description &quot;Level 2 — Analytics domain: meta analysis and prediction.&quot;
+        }
+
+        container vindicta &quot;Primordia&quot; {
+            include vindicta.primordiaAI vindicta.arbiterPredictor
+            include vindicta.diceEngine
+            autoLayout
+            description &quot;Level 2 — Primordia domain: deterministic tactical AI and evaluation.&quot;
+        }
+
+        container vindicta &quot;PlatformServices&quot; {
+            include vindicta.vindictaCore vindicta.economyEngine vindicta.quotaManager vindicta.meteredSaaSLogic
+            include vindicta.auditLogPro vindicta.atomicLedgerPy vindicta.agentAuditorSDK
+            autoLayout
+            description &quot;Level 2 — Platform Services domain: shared primitives, usage, metering, and compliance.&quot;
+        }
+
+        container vindicta &quot;DeveloperExperience&quot; {
+            include vindicta.platformDocs vindicta.dotGithub vindicta.dotSpecify vindicta.dotAgent vindicta.vindictaAgents
+            include github
+            include platformAdmin
+            autoLayout
+            description &quot;Level 2 — Developer Experience domain: docs, org config, agents, and tooling.&quot;
+        }
+
+        # ─────────────────────────────────────────────
+        # Styles
+        # ─────────────────────────────────────────────
+        styles {
+            element &quot;Software System&quot; {
+                background #6B21A8
+                color #FFFFFF
+                shape RoundedBox
+            }
+            element &quot;Person&quot; {
+                background #7C3AED
+                color #FFFFFF
+                shape Person
+            }
+            element &quot;Container&quot; {
+                background #8B5CF6
+                color #FFFFFF
+            }
+            element &quot;External&quot; {
+                background #374151
+                color #9CA3AF
+            }
+        }
+    }
+
+}
+</code></pre></div>
 
 
 
