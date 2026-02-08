@@ -44,19 +44,23 @@ theme:
 
 nav:
   - Home: index.md
-  - Getting Started:
-    - Quick Start: getting-started/quickstart.md
-    - Installation: getting-started/installation.md
-    - Your First Match: getting-started/first-match.md
+  - Roadmap: roadmap.md
+  - Governance:
+    - Constitution: governance/constitution.md
+  - Architecture:
+    - Platform Overview: architecture/overview.md
+    - C4 Model: architecture/c4-model.md
+    - Module Reference: architecture/modules.md
+    - Cost Model: architecture/cost-model.md
   - Features:
     - Army Management: features/army-management.md
     - Match Tracking: features/match-tracking.md
     - Meta Analysis: features/meta-analysis.md
     - AI Predictions: features/ai-predictions.md
-  - Architecture:
-    - Platform Overview: architecture/overview.md
-    - Module Reference: architecture/modules.md
-    - Cost Model: architecture/cost-model.md
+  - Getting Started:
+    - Quick Start: getting-started/quickstart.md
+    - Installation: getting-started/installation.md
+    - Your First Match: getting-started/first-match.md
   - API Reference:
     - REST API: api/rest.md
     - CLI: api/cli.md
