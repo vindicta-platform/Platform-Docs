@@ -1,0 +1,21 @@
+{
+    "config": {
+        "default": true,
+        "line-length": false,
+        "header-style": {
+            "style": "atx"
+        },
+        "ul-style": {
+            "style": "dash"
+        },
+        "no-duplicate-header": false
+    },
+    "globs": [
+        "**/*.md"
+    ],
+    "ignores": [
+        "node_modules",
+        ".git",
+        "site"
+    ]
+}
