@@ -811,10 +811,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vindicta-core" class="md-nav__link">
+  <a href="#vindicta-foundation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vindicta-Core
+        Vindicta Foundation
       
     </span>
   </a>
@@ -822,10 +822,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dice-engine" class="md-nav__link">
+  <a href="#vindicta-engine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dice-Engine
+        Vindicta Engine
       
     </span>
   </a>
@@ -833,10 +833,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#economy-engine" class="md-nav__link">
+  <a href="#warscribe-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Economy-Engine
+        Warscribe System
       
     </span>
   </a>
@@ -844,10 +844,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#meta-oracle" class="md-nav__link">
+  <a href="#vindicta-economy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Meta-Oracle
+        Vindicta Economy
       
     </span>
   </a>
@@ -855,10 +855,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#quota-manager" class="md-nav__link">
+  <a href="#vindicta-oracle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quota-Manager
+        Vindicta Oracle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vindicta-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vindicta Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vindicta-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vindicta Agents
       
     </span>
   </a>
@@ -881,17 +903,6 @@
   
     <nav class="md-nav" aria-label="WARScribe Family">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#warscribe-core" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WARScribe-Core
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#warscribe-parser" class="md-nav__link">
@@ -1554,32 +1565,35 @@
 </code></pre></div>
 <hr />
 <h2 id="core-modules">Core Modules<a class="headerlink" href="#core-modules" title="Permanent link">&para;</a></h2>
-<h3 id="vindicta-core">Vindicta-Core<a class="headerlink" href="#vindicta-core" title="Permanent link">&para;</a></h3>
-<p><em>Shared primitives and settings</em></p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/Vindicta-Core.git
-</code></pre></div>
-<h3 id="dice-engine">Dice-Engine<a class="headerlink" href="#dice-engine" title="Permanent link">&para;</a></h3>
-<p><em>CSPRNG dice roller with entropy proofs</em></p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/Dice-Engine.git
-</code></pre></div>
-<h3 id="economy-engine">Economy-Engine<a class="headerlink" href="#economy-engine" title="Permanent link">&para;</a></h3>
-<p><em>Gas Tank, Ledger, and Meter</em></p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/Economy-Engine.git
-</code></pre></div>
-<h3 id="meta-oracle">Meta-Oracle<a class="headerlink" href="#meta-oracle" title="Permanent link">&para;</a></h3>
-<p><em>AI debate engine for predictions</em></p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/Meta-Oracle.git
-</code></pre></div>
-<h3 id="quota-manager">Quota-Manager<a class="headerlink" href="#quota-manager" title="Permanent link">&para;</a></h3>
-<p><em>Usage tracking and prediction</em></p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/Quota-Manager.git
-</code></pre></div>
+<h3 id="vindicta-foundation">Vindicta Foundation<a class="headerlink" href="#vindicta-foundation" title="Permanent link">&para;</a></h3>
+<p>Core domain models and architectural primitives.
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/vindicta-foundation.git
+</code></pre></div></p>
+<h3 id="vindicta-engine">Vindicta Engine<a class="headerlink" href="#vindicta-engine" title="Permanent link">&para;</a></h3>
+<p>Physics, dice rolling, and simulation engine.
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/vindicta-engine.git
+</code></pre></div></p>
+<h3 id="warscribe-system">Warscribe System<a class="headerlink" href="#warscribe-system" title="Permanent link">&para;</a></h3>
+<p>Notation parsing and ingestion system.
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/warscribe-system.git
+</code></pre></div></p>
+<h3 id="vindicta-economy">Vindicta Economy<a class="headerlink" href="#vindicta-economy" title="Permanent link">&para;</a></h3>
+<p>Virtual economy, ledger, and transaction management.
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/vindicta-economy.git
+</code></pre></div></p>
+<h3 id="vindicta-oracle">Vindicta Oracle<a class="headerlink" href="#vindicta-oracle" title="Permanent link">&para;</a></h3>
+<p>Meta analysis, predictions, and debate council.
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/vindicta-oracle.git
+</code></pre></div></p>
+<h3 id="vindicta-platform">Vindicta Platform<a class="headerlink" href="#vindicta-platform" title="Permanent link">&para;</a></h3>
+<p>Web portal and API services.
+<em>(Repo contains multiple sub-packages)</em></p>
+<h3 id="vindicta-agents">Vindicta Agents<a class="headerlink" href="#vindicta-agents" title="Permanent link">&para;</a></h3>
+<p>Agent SDKs and workflows.
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/vindicta-agents.git
+</code></pre></div></p>
 <hr />
 <h2 id="warscribe-family">WARScribe Family<a class="headerlink" href="#warscribe-family" title="Permanent link">&para;</a></h2>
-<h3 id="warscribe-core">WARScribe-Core<a class="headerlink" href="#warscribe-core" title="Permanent link">&para;</a></h3>
-<p><em>Notation engine</em></p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/WARScribe-Core.git
-</code></pre></div>
 <h3 id="warscribe-parser">WARScribe-Parser<a class="headerlink" href="#warscribe-parser" title="Permanent link">&para;</a></h3>
 <p><em>High-level parsing library</em></p>
 <div class="highlight"><pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/vindicta-platform/WARScribe-Parser.git
