@@ -9,14 +9,14 @@ Establish the canonical C4 architecture model for the Vindicta Platform by autho
 
 ## Technical Context
 
-**Language/Version**: Structurizr DSL (Structurizr CLI 2024.x)  
-**Primary Dependencies**: Structurizr CLI (Java-based, runs via Docker `structurizr/cli`), GitHub Actions  
-**Storage**: Git-tracked DSL file + rendered image artifacts  
-**Testing**: Structurizr CLI `export` validates DSL syntax; markdownlint for ADR/SPIKE docs  
-**Target Platform**: GitHub repository (Platform-Docs) + GitHub Pages for published diagrams  
-**Project Type**: Documentation-only (DSL + Markdown + CI workflow)  
-**Performance Goals**: CI diagram render completes in under 2 minutes  
-**Constraints**: Zero paid tooling (Structurizr Lite/CLI are open-source); diagrams must be viewable without installing anything  
+**Language/Version**: Structurizr DSL (Structurizr CLI 2024.x)
+**Primary Dependencies**: Structurizr CLI (Java-based, runs via Docker `structurizr/cli`), GitHub Actions
+**Storage**: Git-tracked DSL file + rendered image artifacts
+**Testing**: Structurizr CLI `export` validates DSL syntax; markdownlint for ADR/SPIKE docs
+**Target Platform**: GitHub repository (Platform-Docs) + GitHub Pages for published diagrams
+**Project Type**: Documentation-only (DSL + Markdown + CI workflow)
+**Performance Goals**: CI diagram render completes in under 2 minutes
+**Constraints**: Zero paid tooling (Structurizr Lite/CLI are open-source); diagrams must be viewable without installing anything
 **Scale/Scope**: 26 containers, 6 domain groups, ~40 relationships, 3+ ADRs, 2+ SPIKEs
 
 ## Constitution Check

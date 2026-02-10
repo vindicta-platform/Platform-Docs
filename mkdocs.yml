@@ -45,10 +45,14 @@ theme:
 nav:
   - Home: index.md
   - Roadmap: roadmap.md
-  - Governance:
+  - Core Concepts:
     - Constitution: governance/constitution.md
+    - WARScribe Manual: core-concepts/warscribe.md
   - Architecture:
     - Platform Overview: architecture/overview.md
+    - Primordia Engine: architecture/primordia.md
+    - Inference Layer: architecture/inference-layer.md
+    - Quantum Leap Agents: architecture/agents.md
     - C4 Model: architecture/c4-model.md
     - Module Reference: architecture/modules.md
     - Cost Model: architecture/cost-model.md

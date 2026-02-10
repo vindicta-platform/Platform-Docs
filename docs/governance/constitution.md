@@ -1,60 +1,25 @@
-<!--
-Sync Impact Report:
-- Version change: 1.0.0 -> 1.1.0
-- Principles: Unchanged (5 core principles)
-- Additions:
-  1. Pre-commit & CI Standards (Quality Gates)
-  2. PR Hygiene Policy (Development Workflow)
-  3. Architecture Documentation (Quality Gates)
-  4. Session Memory requirement (Agent Context)
-- Validated against: 20 active conversations, 37 open PRs, Week 1 Sprint completed
--->
-# Vindicta Platform Constitution (Ratified v1.1.0)
+# The Vindicta Constitution (The Law)
 
-## Core Principles
+**Project Status:** Foundational / Zero-Order Logic
+**Methodology:** Axiom Driven Engineering (ADE)
 
-1. **MCP-First Mandate**: Always check for available MCP servers (GitHub, Firebase, etc.) before using CLI tools or manual scripts. **Agents MUST use MCP tools for all File Explorer (filesystem) and GitHub operations** to ensure alignment with platform state. Manual CLI usage is a fallback only when MCP capabilities are exhausted.
-2. **Spec-Driven Development (SDD)**: Every feature implementation MUST start with an SDD bundle in `.specify/specs/[ID]-[name]/`. Implementation cannot proceed until the SDD bundle is approved and merged into the main branch.
-3. **Economic Prime Directive**: All platform architecture and implementation must strictly comply with the GCP Free Tier. Scaling beyond free tier limits requires an explicit architectural review.
-4. **Zero-Issue Stability**: System stability and technical debt resolution take precedence over new feature development. Maintain a "Zero-Issue State" at all times.
-5. **Vanilla-Forward & Modern Tooling**: Favor vanilla JavaScript (ES2020+) and modern build systems (Vite 7+) over heavy frameworks. Maintain compatibility with modern SDKs and leverage GitHub Actions for CI/CD.
+## I. Preamble
 
-## Development Workflow
+The Vindicta Platform is governed by a Systemic Constitution that prioritizes "Truth" over "Code." All software manifestations (Logi-Slate, Primordia, WARScribe) must adhere to these self-evident laws. Evolution of the platform occurs via the **Amendment Mechanism**, requiring logical validation against Zero-Order Axioms.
 
-1. **Specify**: Tech-agnostic user stories and acceptance criteria.
-2. **Clarify**: Three-cycle clarification (Ambiguity, Component Impact, Failure Mode).
-3. **Plan**: Technical architecture, file changes, and risk assessment.
-4. **Tasks**: Dependency-ordered (MODELS -> SERVICES -> ENDPOINTS) task list.
-5. **Implement**: Atomic TDD commits (Red-Green-Refactor).
-6. **Verify**: Verification checklist with evidence.
+## II. Zero-Order Axioms (The Physics)
 
-### PR Hygiene Policy
+*   **AX-01 (Entity Identity):** Every object in the simulation (units, terrain, objectives) must possess a unique, immutable identifier and a set of stateful attributes.
+*   **AX-02 (Dimensionality):** All interactions occur within a bounded 3D coordinate system where distances are non-negative scalar values.
+*   **AX-03 (Probability Source):** Outcomes of uncertain events are determined by an object with $N$ faces, each having an equal probability of $1/N$ (The "Die").
+*   **AX-04 (Temporal Discretization):** The simulation progresses through non-overlapping steps (Phases/Turns).
 
-- **Org-wide rollout PRs** (cross-references, pre-commit configs) MUST be batch-merged or closed within 48 hours of creation.
-- **Batch sync PRs** should be merged or rebased promptly; do not let them accumulate.
-- PRs that remain open without activity for >7 days should be reviewed for closure or draft conversion.
-- Feature branches MUST follow the naming convention: `feat/`, `fix/`, `chore/`, `ci/`, `docs/`.
+## III. First-Order Postulates (The Abstract Mechanics)
 
-## Quality Gates
+*   **P1-01 (The Translation Postulate):** An entity may change its spatial coordinates (Move) provided the distance $d$ does not exceed a defined limit $L$.
+*   **P1-02 (The Interaction Postulate):** Entity A may affect the state of Entity B (Attack/Buff) if a logical condition (Line of Sight/Range) is met.
+*   **P1-03 (The Unity Postulate):** A "Unit" is a distributed entity of $M$ models that must maintain a geometric "Coherency" defined by the specific Ruleset.
 
-1. **Linting & Formatting**: All commits must pass pre-commit hooks and linting checks.
-2. **Test Coverage**: Critical paths must have associated unit or integration tests (>80%).
-3. **Link Integrity**: Documentation must pass markdown link validation at all tiers.
-4. **Agent Context**: Every repository must contain up-to-date `.antigravity/` context artifacts (`ARCHITECTURE.md`, `CONSTRAINTS.md`).
-5. **Pre-commit Standards**: Python repos use Ruff for linting/formatting, commitizen for conventional commits, and gitleaks for secret scanning. Frontend repos use markdownlint-cli2 for docs.
-6. **Architecture Documentation**: All cross-cutting architectural decisions MUST be recorded in Platform-Docs (`docs/adr/`) before implementation. The C4 workspace DSL in `c4/workspace.dsl` is the canonical source of truth for system architecture.
+---
 
-## Implementation Hubs
-
-- **Governance & Spec Hub**: [`.specify`](https://github.com/vindicta-platform/.specify) — Authoritative hub for Spec-Driven Development, templates, and the 100-Spec Campaign.
-- **Agent & Automation Hub**: [`.agent`](https://github.com/vindicta-platform/.agent) — Canonical hub for agent workflows, skills, and platform memory. Provides the master Repository Registry.
-
-## Session Memory Protocol
-
-Agents MUST update `.specify/memory/session-log.md` at the end of each working session with:
-- Decisions made and their rationale
-- Active workstreams and their status
-- Blockers and open questions
-- Key file paths and artifact locations
-
-**Version**: 1.1.0 | **Ratified**: 2026-02-06 | **Last Amended**: 2026-02-08
+> **Note:** This constitution supersedes all previous versions.

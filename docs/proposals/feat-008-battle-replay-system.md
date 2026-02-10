@@ -1,9 +1,9 @@
 # feat-008: Battle Replay System
 
-> **Status**: Proposed  
-> **Target Repos**: `Dice-Engine`, `Vindicta-Portal`, `Vindicta-API`  
-> **Author**: Unified Product Architect (UPA)  
-> **Date**: 2026-02-07  
+> **Status**: Proposed
+> **Target Repos**: `Dice-Engine`, `Vindicta-Portal`, `Vindicta-API`
+> **Author**: Unified Product Architect (UPA)
+> **Date**: 2026-02-07
 
 ---
 

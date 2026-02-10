@@ -1,9 +1,9 @@
 # feat-014: Achievement & Progression System
 
-> **Status**: Proposed  
-> **Target Repos**: `Economy-Engine`, `Vindicta-API`, `Vindicta-Portal`  
-> **Author**: Unified Product Architect (UPA)  
-> **Date**: 2026-02-07  
+> **Status**: Proposed
+> **Target Repos**: `Economy-Engine`, `Vindicta-API`, `Vindicta-Portal`
+> **Author**: Unified Product Architect (UPA)
+> **Date**: 2026-02-07
 
 ---
 

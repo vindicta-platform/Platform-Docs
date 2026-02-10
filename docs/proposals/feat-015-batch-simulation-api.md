@@ -1,9 +1,9 @@
 # feat-015: Batch Simulation API
 
-> **Status**: Proposed  
-> **Target Repos**: `Dice-Engine`, `Vindicta-API`, `Vindicta-Core`  
-> **Author**: Unified Product Architect (UPA)  
-> **Date**: 2026-02-07  
+> **Status**: Proposed
+> **Target Repos**: `Dice-Engine`, `Vindicta-API`, `Vindicta-Core`
+> **Author**: Unified Product Architect (UPA)
+> **Date**: 2026-02-07
 
 ---
 

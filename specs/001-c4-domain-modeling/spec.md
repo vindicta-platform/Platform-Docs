@@ -1,8 +1,8 @@
 # Feature Specification: C4 Domain Modeling
 
-**Feature Branch**: `001-c4-domain-modeling`  
-**Created**: 2026-02-07  
-**Status**: Draft  
+**Feature Branch**: `001-c4-domain-modeling`
+**Created**: 2026-02-07
+**Status**: Draft
 **Input**: User description: "Establish and maintain the C4 architecture model for the Vindicta Platform — workspace DSL, domain groupings, container definitions, architecture decision records (ADRs), and architectural spikes."
 
 ## User Scenarios & Testing *(mandatory)*

@@ -1,9 +1,9 @@
 # feat-002: Real-time Battle Simulation Viewer
 
-> **Status**: Proposed  
-> **Target Repos**: `Vindicta-Portal`, `Dice-Engine`, `Vindicta-API`  
-> **Author**: Unified Product Architect (UPA)  
-> **Date**: 2026-02-07  
+> **Status**: Proposed
+> **Target Repos**: `Vindicta-Portal`, `Dice-Engine`, `Vindicta-API`
+> **Author**: Unified Product Architect (UPA)
+> **Date**: 2026-02-07
 
 ---
 

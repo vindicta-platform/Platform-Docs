@@ -71,7 +71,7 @@ When the game ends:
 After the match, review your performance:
 
 - Win rate by mission type
-- Unit efficiency statistics  
+- Unit efficiency statistics
 - Comparison to meta averages
 
 ---

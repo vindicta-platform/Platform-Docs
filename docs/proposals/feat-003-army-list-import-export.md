@@ -1,9 +1,9 @@
 # feat-003: Multi-format Army List Import/Export
 
-> **Status**: Proposed  
-> **Target Repos**: `WARScribe-Parser`, `Vindicta-API`, `Vindicta-Portal`  
-> **Author**: Unified Product Architect (UPA)  
-> **Date**: 2026-02-07  
+> **Status**: Proposed
+> **Target Repos**: `WARScribe-Parser`, `Vindicta-API`, `Vindicta-Portal`
+> **Author**: Unified Product Architect (UPA)
+> **Date**: 2026-02-07
 
 ---
 
@@ -32,13 +32,13 @@ The WARScribe-Parser currently supports the proprietary Wargame Notation System 
 class FormatAdapter(ABC):
     @abstractmethod
     def detect(self, raw: bytes) -> bool: ...
-    
+
     @abstractmethod
     def parse(self, raw: bytes) -> CanonicalArmyList: ...
-    
+
     @abstractmethod
     def export(self, army: CanonicalArmyList) -> bytes: ...
-    
+
     @property
     @abstractmethod
     def format_id(self) -> str: ...

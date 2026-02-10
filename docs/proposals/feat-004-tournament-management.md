@@ -1,9 +1,9 @@
 # feat-004: Tournament Management System
 
-> **Status**: Proposed  
-> **Target Repos**: `Vindicta-Core`, `Vindicta-API`, `Vindicta-Portal`  
-> **Author**: Unified Product Architect (UPA)  
-> **Date**: 2026-02-07  
+> **Status**: Proposed
+> **Target Repos**: `Vindicta-Core`, `Vindicta-API`, `Vindicta-Portal`
+> **Author**: Unified Product Architect (UPA)
+> **Date**: 2026-02-07
 
 ---
 

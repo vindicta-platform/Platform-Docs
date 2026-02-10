@@ -1,9 +1,9 @@
 # feat-005: Push Notifications & Webhook Events
 
-> **Status**: Proposed  
-> **Target Repos**: `Vindicta-API`, `Vindicta-Core`  
-> **Author**: Unified Product Architect (UPA)  
-> **Date**: 2026-02-07  
+> **Status**: Proposed
+> **Target Repos**: `Vindicta-API`, `Vindicta-Core`
+> **Author**: Unified Product Architect (UPA)
+> **Date**: 2026-02-07
 
 ---
 

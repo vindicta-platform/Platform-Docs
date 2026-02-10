@@ -49,7 +49,7 @@ Provide comprehensive, searchable, and beautifully rendered documentation for al
 
 This documentation site serves as the **public face** of the Vindicta Platform. Individual repositories maintain their own `docs/` folders for:
 - Repository-specific ADRs
-- Setup and contribution guides  
+- Setup and contribution guides
 - API documentation specific to that package
 
 The Platform-Docs site aggregates and presents platform-wide concerns only.
