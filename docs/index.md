@@ -32,19 +32,19 @@ All components are open source and modular. Use the whole platform, or just the 
 
 <div class="grid cards" markdown>
 
-- :material-rocket-launch: **[Quick Start](getting-started/quickstart.md)**
+- 🚀 **[Quick Start](getting-started/quickstart.md)**
   
     Get up and running in 5 minutes
 
-- :material-format-list-bulleted: **[Army Management](features/army-management.md)**
+- 📋 **[Army Management](features/army-management.md)**
   
     Build and validate lists
 
-- :material-sword-cross: **[Match Tracking](features/match-tracking.md)**
+- ⚔️ **[Match Tracking](features/match-tracking.md)**
   
     Record your games
 
-- :material-chart-line: **[Meta Analysis](features/meta-analysis.md)**
+- 📈 **[Meta Analysis](features/meta-analysis.md)**
   
     Discover the meta
 
@@ -56,13 +56,13 @@ All components are open source and modular. Use the whole platform, or just the 
 
 Vindicta is a modular platform. Each component can be used independently or together:
 
-| Component | Description |
-|-----------|-------------|
-| **Logi-Slate** | The web/mobile UI for players |
-| **WARScribe** | Army list notation and parsing |
-| **Meta-Oracle** | AI-powered meta analysis |
+| Component       | Description                         |
+| --------------- | ----------------------------------- |
+| **Logi-Slate**  | The web/mobile UI for players       |
+| **WARScribe**   | Army list notation and parsing      |
+| **Meta-Oracle** | AI-powered meta analysis            |
 | **Dice Engine** | Cryptographically fair dice rolling |
-| **Economy** | Free-tier cost management |
+| **Economy**     | Free-tier cost management           |
 
 ---
 

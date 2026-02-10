@@ -42,17 +42,14 @@ uv pip install -e ".[dev]"
 Each module can be installed independently:
 
 ```bash
-# Dice Engine
-uv pip install git+https://github.com/vindicta-platform/Dice-Engine.git
+# Core Platform
+uv pip install git+https://github.com/vindicta-platform/vindicta-foundation.git
+uv pip install git+https://github.com/vindicta-platform/vindicta-engine.git
 
-# Economy Engine
-uv pip install git+https://github.com/vindicta-platform/Economy-Engine.git
-
-# Meta-Oracle
-uv pip install git+https://github.com/vindicta-platform/Meta-Oracle.git
-
-# WARScribe Core
-uv pip install git+https://github.com/vindicta-platform/WARScribe-Core.git
+# Logic & Data
+uv pip install git+https://github.com/vindicta-platform/warscribe-system.git
+uv pip install git+https://github.com/vindicta-platform/vindicta-economy.git
+uv pip install git+https://github.com/vindicta-platform/vindicta-oracle.git
 ```
 
 ### Logi-Slate UI

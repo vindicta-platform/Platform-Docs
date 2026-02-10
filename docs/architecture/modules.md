@@ -31,51 +31,49 @@ git clone https://github.com/vindicta-platform/Logi-Slate-UI.git
 
 ## Core Modules
 
-### Vindicta-Core
-*Shared primitives and settings*
-
+### Vindicta Foundation
+Core domain models and architectural primitives.
 ```bash
-uv pip install git+https://github.com/vindicta-platform/Vindicta-Core.git
+uv pip install git+https://github.com/vindicta-platform/vindicta-foundation.git
 ```
 
-### Dice-Engine
-*CSPRNG dice roller with entropy proofs*
-
+### Vindicta Engine
+Physics, dice rolling, and simulation engine.
 ```bash
-uv pip install git+https://github.com/vindicta-platform/Dice-Engine.git
+uv pip install git+https://github.com/vindicta-platform/vindicta-engine.git
 ```
 
-### Economy-Engine
-*Gas Tank, Ledger, and Meter*
-
+### Warscribe System
+Notation parsing and ingestion system.
 ```bash
-uv pip install git+https://github.com/vindicta-platform/Economy-Engine.git
+uv pip install git+https://github.com/vindicta-platform/warscribe-system.git
 ```
 
-### Meta-Oracle
-*AI debate engine for predictions*
-
+### Vindicta Economy
+Virtual economy, ledger, and transaction management.
 ```bash
-uv pip install git+https://github.com/vindicta-platform/Meta-Oracle.git
+uv pip install git+https://github.com/vindicta-platform/vindicta-economy.git
 ```
 
-### Quota-Manager
-*Usage tracking and prediction*
-
+### Vindicta Oracle
+Meta analysis, predictions, and debate council.
 ```bash
-uv pip install git+https://github.com/vindicta-platform/Quota-Manager.git
+uv pip install git+https://github.com/vindicta-platform/vindicta-oracle.git
+```
+
+### Vindicta Platform
+Web portal and API services.
+*(Repo contains multiple sub-packages)*
+
+### Vindicta Agents
+Agent SDKs and workflows.
+```bash
+uv pip install git+https://github.com/vindicta-platform/vindicta-agents.git
 ```
 
 ---
 
 ## WARScribe Family
-
-### WARScribe-Core
-*Notation engine*
-
-```bash
-uv pip install git+https://github.com/vindicta-platform/WARScribe-Core.git
-```
 
 ### WARScribe-Parser
 *High-level parsing library*

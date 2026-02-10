@@ -32,16 +32,15 @@ Vindicta follows a **modular monolith** approach:
 
 ## Core Modules
 
-| Module | Purpose |
-|--------|---------|
-| **Vindicta-Core** | Shared primitives, config, interfaces |
-| **Vindicta-API** | REST endpoints via FastAPI |
-| **Vindicta-CLI** | Unified command-line interface |
-| **Dice-Engine** | CSPRNG dice with entropy proofs |
-| **Economy-Engine** | Gas Tank, Ledger, Meter |
-| **Meta-Oracle** | AI prediction engine |
-| **Quota-Manager** | Usage tracking |
-| **WARScribe-Core** | Action notation engine |
+| Module                  | Purpose                                     |
+| ----------------------- | ------------------------------------------- |
+| **Vindicta Foundation** | Base models, Architecture, Constitution     |
+| **Vindicta Engine**     | Physics, Dice, Entropy, Evaluation, AI Core |
+| **Warscribe System**    | Notation, Parsing, Transcripts              |
+| **Vindicta Economy**    | Ledger, GasTank, Transactions, Achievements |
+| **Vindicta Oracle**     | Debate Council, Prediction, Agent Protocol  |
+| **Vindicta Platform**   | API, Portal, UI Lib                         |
+| **Vindicta Agents**     | SDKs, Workflows, Swarm                      |
 
 ## Data Flow
 
