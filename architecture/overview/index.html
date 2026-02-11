@@ -1645,15 +1645,26 @@
 </tbody>
 </table>
 <h2 id="data-flow">Data Flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>User → [Portal/CLI] → API → Orchestrator
-                                  │
-                  ┌───────────────┼───────────────┐
-                  ↓               ↓               ↓
-            Project Primordia   Economy      Meta-Oracle
-                  │
-                  ↓
-           WARScribe Notation
-</code></pre></div>
+<pre class="mermaid"><code>graph TD
+    User([User])
+    Portal[Vindicta Portal]
+    CLI[Vindicta CLI]
+    API[Vindicta API]
+    Orch[Orchestrator]
+    Prim[Project Primordia]
+    Econ[Economy Engine]
+    Oracle[Meta-Oracle]
+    WAR[WARScribe Notation]
+
+    User --&gt; Portal
+    User --&gt; CLI
+    Portal --&gt; API
+    CLI --&gt; API
+    API --&gt; Orch
+    Orch --&gt; Prim
+    Orch --&gt; Econ
+    Orch --&gt; Oracle
+    Prim --&gt; WAR</code></pre>
 <hr />
 <h2 id="deployment-options">Deployment Options<a class="headerlink" href="#deployment-options" title="Permanent link">&para;</a></h2>
 <ol>
