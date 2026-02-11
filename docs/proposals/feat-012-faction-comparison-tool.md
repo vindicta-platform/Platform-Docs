@@ -1,9 +1,9 @@
 # feat-012: Faction Comparison Tool
 
-> **Status**: Proposed  
-> **Target Repos**: `Meta-Oracle`, `Vindicta-Portal`, `Vindicta-API`  
-> **Author**: Unified Product Architect (UPA)  
-> **Date**: 2026-02-07  
+> **Status**: Proposed
+> **Target Repos**: `Meta-Oracle`, `Vindicta-Portal`, `Vindicta-API`
+> **Author**: Unified Product Architect (UPA)
+> **Date**: 2026-02-07
 
 ---
 

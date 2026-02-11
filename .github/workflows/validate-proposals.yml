@@ -49,7 +49,7 @@ jobs:
           ERRORS=0
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "--- Checking: $file ---"
-            
+
             # Check for required SDD sections
             for section in "Part A" "Overview" "System Architecture" "Data Model" "Security" "Assumptions"; do
               if ! grep -qi "$section" "$file"; then
@@ -57,7 +57,7 @@ jobs:
                 ERRORS=$((ERRORS + 1))
               fi
             done
-            
+
             # Check for required BDD sections
             for section in "Part B" "User Stories"; do
               if ! grep -qi "$section" "$file"; then
@@ -65,13 +65,13 @@ jobs:
                 ERRORS=$((ERRORS + 1))
               fi
             done
-            
+
             # Check for Gherkin syntax
             if ! grep -q "Given" "$file" || ! grep -q "When" "$file" || ! grep -q "Then" "$file"; then
               echo "❌ Missing Gherkin syntax (Given/When/Then) in BDD section"
               ERRORS=$((ERRORS + 1))
             fi
-            
+
             # Check for proposal header metadata
             if ! grep -q "Status" "$file"; then
               echo "❌ Missing Status field in proposal header"
@@ -81,10 +81,10 @@ jobs:
               echo "❌ Missing Target Repos field in proposal header"
               ERRORS=$((ERRORS + 1))
             fi
-            
+
             echo ""
           done
-          
+
           if [ $ERRORS -gt 0 ]; then
             echo "::error::$ERRORS structural issue(s) found across proposals. See above for details."
             exit 1
@@ -102,20 +102,20 @@ jobs:
             GIVENS=$(grep -c "Given" "$file" || true)
             WHENS=$(grep -c "When" "$file" || true)
             THENS=$(grep -c "Then" "$file" || true)
-            
+
             echo "📄 $file: $FEATURES Feature(s), $SCENARIOS Scenario(s), $GIVENS Given(s), $WHENS When(s), $THENS Then(s)"
-            
+
             if [ "$SCENARIOS" -eq 0 ]; then
               echo "❌ No Scenarios found in $file"
               ERRORS=$((ERRORS + 1))
             fi
-            
+
             if [ "$SCENARIOS" -gt 0 ] && [ "$GIVENS" -eq 0 ]; then
               echo "❌ Scenarios without Given clauses in $file"
               ERRORS=$((ERRORS + 1))
             fi
           done
-          
+
           if [ $ERRORS -gt 0 ]; then
             echo "::error::$ERRORS Gherkin issue(s) found. Each Scenario needs Given/When/Then."
             exit 1

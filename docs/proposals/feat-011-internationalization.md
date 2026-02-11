@@ -1,9 +1,9 @@
 # feat-011: Internationalization (i18n)
 
-> **Status**: Proposed  
-> **Target Repos**: `Vindicta-Portal`, `Logi-Slate-UI`  
-> **Author**: Unified Product Architect (UPA)  
-> **Date**: 2026-02-07  
+> **Status**: Proposed
+> **Target Repos**: `Vindicta-Portal`, `Logi-Slate-UI`
+> **Author**: Unified Product Architect (UPA)
+> **Date**: 2026-02-07
 
 ---
 

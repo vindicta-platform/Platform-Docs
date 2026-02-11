@@ -1,9 +1,9 @@
 # feat-007: Social Features — Friends, Clubs & Chat
 
-> **Status**: Proposed  
-> **Target Repos**: `Vindicta-API`, `Vindicta-Portal`, `Vindicta-Core`  
-> **Author**: Unified Product Architect (UPA)  
-> **Date**: 2026-02-07  
+> **Status**: Proposed
+> **Target Repos**: `Vindicta-API`, `Vindicta-Portal`, `Vindicta-Core`
+> **Author**: Unified Product Architect (UPA)
+> **Date**: 2026-02-07
 
 ---
 

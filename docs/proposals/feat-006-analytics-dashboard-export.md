@@ -1,9 +1,9 @@
 # feat-006: Analytics Dashboard & Data Export
 
-> **Status**: Proposed  
-> **Target Repos**: `Vindicta-Portal`, `Meta-Oracle`, `Vindicta-API`  
-> **Author**: Unified Product Architect (UPA)  
-> **Date**: 2026-02-07  
+> **Status**: Proposed
+> **Target Repos**: `Vindicta-Portal`, `Meta-Oracle`, `Vindicta-API`
+> **Author**: Unified Product Architect (UPA)
+> **Date**: 2026-02-07
 
 ---
 

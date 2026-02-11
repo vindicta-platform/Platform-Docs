@@ -33,19 +33,19 @@ All components are open source and modular. Use the whole platform, or just the 
 <div class="grid cards" markdown>
 
 - 🚀 **[Quick Start](getting-started/quickstart.md)**
-  
+
     Get up and running in 5 minutes
 
 - 📋 **[Army Management](features/army-management.md)**
-  
+
     Build and validate lists
 
 - ⚔️ **[Match Tracking](features/match-tracking.md)**
-  
+
     Record your games
 
 - 📈 **[Meta Analysis](features/meta-analysis.md)**
-  
+
     Discover the meta
 
 </div>
