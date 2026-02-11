@@ -12,13 +12,13 @@
         <meta name="author" content="Vindicta Platform Contributors">
       
       
-        <link rel="canonical" href="https://vindicta-platform.github.io/Platform-Docs/architecture/c4-model/">
+        <link rel="canonical" href="https://vindicta-platform.github.io/Platform-Docs/architecture/primordia/">
       
       
-        <link rel="prev" href="../agents/">
+        <link rel="prev" href="../overview/">
       
       
-        <link rel="next" href="../modules/">
+        <link rel="next" href="../inference-layer/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>C4 Model - Vindicta Platform</title>
+        <title>Primordia Engine - Vindicta Platform</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c4-system-architecture" class="md-skip">
+        <a href="#primordia-engine-architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C4 Model
+              Primordia Engine
             
           </span>
         </div>
@@ -686,10 +686,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../primordia/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primordia Engine
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -705,6 +732,48 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#i-the-advantage-meter-20-0-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. The Advantage Meter (20-0 Scale)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-search-pruning-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        II. Search &amp; Pruning Logic
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -770,37 +839,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    C4 Model
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../c4-model/" class="md-nav__link">
         
   
   
@@ -816,37 +858,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#workspace-dsl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workspace DSL
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1487,274 +1498,20 @@
   
 
 
-<h1 id="c4-system-architecture">C4 System Architecture<a class="headerlink" href="#c4-system-architecture" title="Permanent link">&para;</a></h1>
-<p>The <strong>Vindicta Platform</strong> architecture is defined using the <a href="https://c4model.com/">C4 Model</a> and managed as code using <a href="https://structurizr.com/dsl">Structurizr DSL</a>.</p>
-<p>This model serves as the canonical source of truth for all system containers, relationships, and component boundaries.</p>
-<h2 id="workspace-dsl">Workspace DSL<a class="headerlink" href="#workspace-dsl" title="Permanent link">&para;</a></h2>
-<p>The following DSL definition resides in <code>c4/workspace.dsl</code> and can be rendered using Structurizr Lite or CLI.</p>
-<div class="highlight"><pre><span></span><code>workspace &quot;Vindicta Platform&quot; &quot;C4 Architecture Model for the unified competitive Warhammer 40k platform.&quot; {
-
-    !identifiers hierarchical
-
-    model {
-        # ─────────────────────────────────────────────
-        # External Actors
-        # ─────────────────────────────────────────────
-        player = person &quot;Competitive Player&quot; &quot;Warhammer 40k player who builds lists, tracks matches, and analyzes the meta.&quot;
-        tournamentOrganizer = person &quot;Tournament Organizer&quot; &quot;Runs events, manages pairings, and reviews results.&quot;
-        platformAdmin = person &quot;Platform Admin&quot; &quot;Maintains infrastructure, monitors health, and evolves the platform.&quot;
-
-        # ─────────────────────────────────────────────
-        # External Systems
-        # ─────────────────────────────────────────────
-        gcp = softwareSystem &quot;Google Cloud Platform&quot; &quot;Hosting, databases, and cloud services.&quot; &quot;External&quot;
-        github = softwareSystem &quot;GitHub&quot; &quot;Source control, CI/CD, and project management.&quot; &quot;External&quot;
-
-        # ─────────────────────────────────────────────
-        # Vindicta Platform
-        # ─────────────────────────────────────────────
-        vindicta = softwareSystem &quot;Vindicta Platform&quot; &quot;Unified competitive Warhammer 40k platform for army management, match tracking, meta analysis, and AI predictions.&quot; {
-
-            # ═══════════════════════════════════════════
-            # DOMAIN: Presentation
-            # User-facing interfaces and entry points
-            # ═══════════════════════════════════════════
-            group &quot;Presentation&quot; {
-                portal = container &quot;Vindicta-Portal&quot; &quot;Web portal for players — static site hosted on GCP.&quot; &quot;HTML/JS&quot; &quot;Web Browser&quot;
-                logiSlateUI = container &quot;Logi-Slate-UI&quot; &quot;React/Tailwind component library implementing the Vindicta design system.&quot; &quot;React, TypeScript, Tailwind&quot;
-                vindictaCLI = container &quot;Vindicta-CLI&quot; &quot;Unified command-line interface for developers and power users.&quot; &quot;Python, Click&quot;
-                vindictaAPI = container &quot;Vindicta-API&quot; &quot;REST API gateway — FastAPI endpoints exposing platform services.&quot; &quot;Python, FastAPI&quot;
-            }
-
-            # ═══════════════════════════════════════════
-            # DOMAIN: Game Simulation
-            # Deterministic game mechanics
-            # ═══════════════════════════════════════════
-            group &quot;Game Simulation&quot; {
-                diceEngine = container &quot;Dice-Engine&quot; &quot;CSPRNG dice roller with entropy proofs and cryptographic fairness guarantees.&quot; &quot;Python&quot;
-                entropyBuffer = container &quot;Entropy-Buffer&quot; &quot;Thread-safe, buffered entropy management for reliable RNG seeding.&quot; &quot;Python&quot;
-            }
-
-            # ═══════════════════════════════════════════
-            # DOMAIN: Game Notation
-            # Structured game transcription and parsing
-            # ═══════════════════════════════════════════
-            group &quot;Game Notation&quot; {
-                warscribeCore = container &quot;WARScribe-Core&quot; &quot;Wargame Notation System (WNS) action notation engine.&quot; &quot;Python&quot;
-                warscribeParser = container &quot;WARScribe-Parser&quot; &quot;High-level parsing library for WNS transcripts.&quot; &quot;Python&quot;
-                warscribeCLI = container &quot;WARScribe-CLI&quot; &quot;CLI tools for local wargame transcript ingestion.&quot; &quot;Python&quot;
-                battleTranscriptToolkit = container &quot;Battle-Transcript-Toolkit&quot; &quot;Markdown tools for complex agent transcript handling.&quot; &quot;Python&quot;
-            }
-
-            # ═══════════════════════════════════════════
-            # DOMAIN: Analytics
-            # Meta analysis and prediction
-            # ═══════════════════════════════════════════
-            group &quot;Analytics&quot; {
-                metaOracle = container &quot;Meta-Oracle&quot; &quot;AI debate engine for meta analysis and prediction.&quot; &quot;Python&quot;
-            }
-
-            # ═══════════════════════════════════════════
-            # DOMAIN: Primordia
-            # Deterministic tactical AI and evaluation
-            # ═══════════════════════════════════════════
-            group &quot;Primordia&quot; {
-                primordiaAI = container &quot;Primordia-AI&quot; &quot;Deterministic tactical AI engine — the Stockfish of Warhammer.&quot; &quot;Python&quot;
-                arbiterPredictor = container &quot;Arbiter-Predictor&quot; &quot;Statistical library for win probability calculations.&quot; &quot;Python&quot;
-            }
-
-            # ═══════════════════════════════════════════
-            # DOMAIN: Platform Services
-            # Shared primitives, metering, and compliance
-            # ═══════════════════════════════════════════
-            group &quot;Platform Services&quot; {
-                vindictaCore = container &quot;Vindicta-Core&quot; &quot;Shared primitives, configuration, and interfaces used across all modules.&quot; &quot;Python&quot;
-                economyEngine = container &quot;Economy-Engine&quot; &quot;Gas Tank, Atomic Ledger, and Usage Meter — resource consumption and cost model.&quot; &quot;Python&quot;
-                quotaManager = container &quot;Quota-Manager&quot; &quot;Usage tracking, quota enforcement, and consumption prediction.&quot; &quot;Python&quot;
-                meteredSaaSLogic = container &quot;Metered-SaaS-Logic&quot; &quot;Dynamic usage metering and pricing multiplier logic.&quot; &quot;Python&quot;
-                auditLogPro = container &quot;Audit-Log-Pro&quot; &quot;Dual-sink transactional audit logging system.&quot; &quot;Python&quot;
-                atomicLedgerPy = container &quot;Atomic-Ledger-Py&quot; &quot;Lightweight atomic ledger pattern implementation for transactional integrity.&quot; &quot;Python&quot;
-                agentAuditorSDK = container &quot;Agent-Auditor-SDK&quot; &quot;Framework for Mechanical Auditor agents — compliance verification.&quot; &quot;Python&quot;
-            }
-
-            # ═══════════════════════════════════════════
-            # DOMAIN: Developer Experience
-            # Tooling, docs, agents, and org config
-            # ═══════════════════════════════════════════
-            group &quot;Developer Experience&quot; {
-                platformDocs = container &quot;Platform-Docs&quot; &quot;MkDocs Material documentation site — platform-wide architecture, guides, and ADRs.&quot; &quot;MkDocs, Markdown&quot;
-                dotGithub = container &quot;.github&quot; &quot;Organization-wide GitHub configuration, templates, issue forms, and roadmap.&quot; &quot;YAML, Markdown&quot;
-                dotSpecify = container &quot;.specify&quot; &quot;Specification-Driven Development (SDD) constitution and memory.&quot; &quot;Markdown&quot;
-                dotAgent = container &quot;.agent&quot; &quot;Organization-wide agent workflows and automation definitions.&quot; &quot;Markdown, YAML&quot;
-                vindictaAgents = container &quot;Vindicta-Agents&quot; &quot;Dev container images and agent runtime environments.&quot; &quot;Docker, PowerShell&quot;
-            }
-        }
-
-        # ─────────────────────────────────────────────
-        # Relationships: Actors → System
-        # ─────────────────────────────────────────────
-        player -&gt; vindicta &quot;Uses&quot; &quot;HTTPS, CLI&quot;
-        tournamentOrganizer -&gt; vindicta &quot;Manages tournaments via&quot; &quot;HTTPS&quot;
-        platformAdmin -&gt; vindicta &quot;Administers and evolves&quot; &quot;CLI, GitHub&quot;
-
-        # ─────────────────────────────────────────────
-        # Relationships: Actors → Containers
-        # ─────────────────────────────────────────────
-        player -&gt; vindicta.portal &quot;Browses army lists, matches, meta&quot; &quot;HTTPS&quot;
-        player -&gt; vindicta.vindictaCLI &quot;Power-user game management&quot; &quot;Terminal&quot;
-        tournamentOrganizer -&gt; vindicta.portal &quot;Manages events&quot; &quot;HTTPS&quot;
-        platformAdmin -&gt; vindicta.vindictaCLI &quot;Platform operations&quot; &quot;Terminal&quot;
-        platformAdmin -&gt; vindicta.platformDocs &quot;Reads and evolves architecture&quot; &quot;HTTPS&quot;
-
-        # ─────────────────────────────────────────────
-        # Relationships: Containers → Containers
-        # ─────────────────────────────────────────────
-
-        # Presentation → Backend
-        vindicta.portal -&gt; vindicta.vindictaAPI &quot;Calls&quot; &quot;REST/JSON&quot;
-        vindicta.portal -&gt; vindicta.logiSlateUI &quot;Uses components from&quot; &quot;&quot;
-        vindicta.vindictaCLI -&gt; vindicta.vindictaAPI &quot;Calls&quot; &quot;REST/JSON&quot;
-
-        # API → Domain Services
-        vindicta.vindictaAPI -&gt; vindicta.vindictaCore &quot;Uses shared primitives&quot; &quot;&quot;
-        vindicta.vindictaAPI -&gt; vindicta.diceEngine &quot;Requests dice rolls&quot; &quot;&quot;
-        vindicta.vindictaAPI -&gt; vindicta.economyEngine &quot;Tracks resource usage&quot; &quot;&quot;
-        vindicta.vindictaAPI -&gt; vindicta.metaOracle &quot;Requests predictions&quot; &quot;&quot;
-        vindicta.vindictaAPI -&gt; vindicta.warscribeCore &quot;Processes game notation&quot; &quot;&quot;
-        vindicta.vindictaAPI -&gt; vindicta.quotaManager &quot;Enforces usage quotas&quot; &quot;&quot;
-
-        # Game Simulation internals
-        vindicta.diceEngine -&gt; vindicta.entropyBuffer &quot;Seeds RNG from&quot; &quot;&quot;
-        vindicta.economyEngine -&gt; vindicta.atomicLedgerPy &quot;Uses atomic ledger pattern&quot; &quot;&quot;
-        vindicta.economyEngine -&gt; vindicta.meteredSaaSLogic &quot;Applies pricing multipliers&quot; &quot;&quot;
-
-        # Game Notation internals
-        vindicta.warscribeParser -&gt; vindicta.warscribeCore &quot;Parses WNS via&quot; &quot;&quot;
-        vindicta.warscribeCLI -&gt; vindicta.warscribeParser &quot;Uses&quot; &quot;&quot;
-        vindicta.battleTranscriptToolkit -&gt; vindicta.warscribeCore &quot;Processes transcripts via&quot; &quot;&quot;
-
-        # Analytics internals
-        vindicta.metaOracle -&gt; vindicta.arbiterPredictor &quot;Uses win probability from&quot; &quot;&quot;
-        vindicta.metaOracle -&gt; vindicta.warscribeCore &quot;Reads game notation via&quot; &quot;&quot;
-        vindicta.primordiaAI -&gt; vindicta.diceEngine &quot;Simulates outcomes via&quot; &quot;&quot;
-        vindicta.primordiaAI -&gt; vindicta.arbiterPredictor &quot;Evaluates positions via&quot; &quot;&quot;
-
-        # Platform Services internals
-        vindicta.quotaManager -&gt; vindicta.meteredSaaSLogic &quot;Uses metering logic from&quot; &quot;&quot;
-        vindicta.agentAuditorSDK -&gt; vindicta.auditLogPro &quot;Writes audit trails to&quot; &quot;&quot;
-
-        # Cross-cutting dependencies
-        vindicta.vindictaCLI -&gt; vindicta.vindictaCore &quot;Uses shared primitives&quot; &quot;&quot;
-
-        # External system relationships
-        vindicta.portal -&gt; gcp &quot;Hosted on&quot; &quot;Cloud Run / GCS&quot;
-        vindicta.vindictaAPI -&gt; gcp &quot;Deployed to&quot; &quot;Cloud Run&quot;
-        vindicta.vindictaAgents -&gt; github &quot;Builds via&quot; &quot;GitHub Actions&quot;
-        vindicta.platformDocs -&gt; github &quot;Published via&quot; &quot;GitHub Pages&quot;
-        vindicta.dotGithub -&gt; github &quot;Configures&quot; &quot;Org settings&quot;
-    }
-
-    views {
-        # ─────────────────────────────────────────────
-        # Level 1: System Context
-        # ─────────────────────────────────────────────
-        systemContext vindicta &quot;SystemContext&quot; {
-            include *
-            autoLayout
-            description &quot;Level 1 — Vindicta Platform in its environment: users and external systems.&quot;
-        }
-
-        # ─────────────────────────────────────────────
-        # Level 2: Container Overview
-        # ─────────────────────────────────────────────
-        container vindicta &quot;Containers&quot; {
-            include *
-            autoLayout
-            description &quot;Level 2 — All containers grouped by functional domain.&quot;
-        }
-
-        # ─────────────────────────────────────────────
-        # Level 2: Domain-Focused Views
-        # ─────────────────────────────────────────────
-        container vindicta &quot;Presentation&quot; {
-            include vindicta.portal vindicta.logiSlateUI vindicta.vindictaCLI vindicta.vindictaAPI
-            include vindicta.vindictaCore
-            include player tournamentOrganizer platformAdmin
-            autoLayout
-            description &quot;Level 2 — Presentation domain: user-facing interfaces and API gateway.&quot;
-        }
-
-        container vindicta &quot;GameSimulation&quot; {
-            include vindicta.diceEngine vindicta.entropyBuffer
-            include vindicta.vindictaAPI
-            autoLayout
-            description &quot;Level 2 — Game Simulation domain: dice and entropy.&quot;
-        }
-
-        container vindicta &quot;GameNotation&quot; {
-            include vindicta.warscribeCore vindicta.warscribeParser vindicta.warscribeCLI vindicta.battleTranscriptToolkit
-            include vindicta.vindictaAPI
-            autoLayout
-            description &quot;Level 2 — Game Notation domain: WARScribe and transcript processing.&quot;
-        }
-
-        container vindicta &quot;Analytics&quot; {
-            include vindicta.metaOracle
-            include vindicta.warscribeCore vindicta.arbiterPredictor
-            include vindicta.vindictaAPI
-            autoLayout
-            description &quot;Level 2 — Analytics domain: meta analysis and prediction.&quot;
-        }
-
-        container vindicta &quot;Primordia&quot; {
-            include vindicta.primordiaAI vindicta.arbiterPredictor
-            include vindicta.diceEngine
-            autoLayout
-            description &quot;Level 2 — Primordia domain: deterministic tactical AI and evaluation.&quot;
-        }
-
-        container vindicta &quot;PlatformServices&quot; {
-            include vindicta.vindictaCore vindicta.economyEngine vindicta.quotaManager vindicta.meteredSaaSLogic
-            include vindicta.auditLogPro vindicta.atomicLedgerPy vindicta.agentAuditorSDK
-            autoLayout
-            description &quot;Level 2 — Platform Services domain: shared primitives, usage, metering, and compliance.&quot;
-        }
-
-        container vindicta &quot;DeveloperExperience&quot; {
-            include vindicta.platformDocs vindicta.dotGithub vindicta.dotSpecify vindicta.dotAgent vindicta.vindictaAgents
-            include github
-            include platformAdmin
-            autoLayout
-            description &quot;Level 2 — Developer Experience domain: docs, org config, agents, and tooling.&quot;
-        }
-
-        # ─────────────────────────────────────────────
-        # Styles
-        # ─────────────────────────────────────────────
-        styles {
-            element &quot;Software System&quot; {
-                background #6B21A8
-                color #FFFFFF
-                shape RoundedBox
-            }
-            element &quot;Person&quot; {
-                background #7C3AED
-                color #FFFFFF
-                shape Person
-            }
-            element &quot;Container&quot; {
-                background #8B5CF6
-                color #FFFFFF
-            }
-            element &quot;External&quot; {
-                background #374151
-                color #9CA3AF
-            }
-        }
-    }
-
-}
-</code></pre></div>
+<h1 id="primordia-engine-architecture">Primordia Engine Architecture<a class="headerlink" href="#primordia-engine-architecture" title="Permanent link">&para;</a></h1>
+<p><strong>Function:</strong> Deterministic Advantage Inference ("Chess Engine for 40k")</p>
+<h2 id="i-the-advantage-meter-20-0-scale">I. The Advantage Meter (20-0 Scale)<a class="headerlink" href="#i-the-advantage-meter-20-0-scale" title="Permanent link">&para;</a></h2>
+<p>Primordia evaluates the board state using the <strong>Dynamic Material Formula (DMF)</strong>:</p>
+<p>$$
+\text{DMF} = \sum (\text{Material} \times \text{Lethality}) + (\text{Victory Points} \times \text{Momentum})
+$$</p>
+<p>Advantage is inferred by projecting $\Delta \text{VP}$ delta across Turn 5, mapped to a WTC-style <strong>20-0 point differential</strong>.</p>
+<h2 id="ii-search-pruning-logic">II. Search &amp; Pruning Logic<a class="headerlink" href="#ii-search-pruning-logic" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Alpha-Beta Search:</strong> Prunes branches that don't result in an Objective Flip or High-Efficiency Trade.</li>
+<li><strong>Root Parallelization:</strong> Scales search across home server CPU cores, assigning "Luck Profiles" (Optimistic/Pessimistic) to each core to handle dice variance.</li>
+<li><strong>Mate in N:</strong> Detection of <strong>Alpha-Lock</strong> (Tabling) or <strong>Delta-Lock</strong> (Points mathematically insurmountable).</li>
+</ul>
 
 
 

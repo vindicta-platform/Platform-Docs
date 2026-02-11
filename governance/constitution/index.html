@@ -18,7 +18,7 @@
         <link rel="prev" href="../../roadmap/">
       
       
-        <link rel="next" href="../../architecture/overview/">
+        <link rel="next" href="../../core-concepts/warscribe/">
       
       
         
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vindicta-platform-constitution-ratified-v110" class="md-skip">
+        <a href="#the-vindicta-constitution-the-law" class="md-skip">
           Skip to content
         </a>
       
@@ -272,7 +272,7 @@
           
   
   
-  Governance
+  Core Concepts
 
         </a>
       </li>
@@ -515,7 +515,7 @@
   <span class="md-ellipsis">
     
   
-    Governance
+    Core Concepts
   
 
     
@@ -531,7 +531,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Governance
+    Core Concepts
   
 
           </label>
@@ -604,10 +604,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core-principles" class="md-nav__link">
+  <a href="#i-preamble" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core Principles
+        I. Preamble
       
     </span>
   </a>
@@ -615,38 +615,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#development-workflow" class="md-nav__link">
+  <a href="#ii-zero-order-axioms-the-physics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Development Workflow
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Development Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pr-hygiene-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PR Hygiene Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quality-gates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quality Gates
+        II. Zero-Order Axioms (The Physics)
       
     </span>
   </a>
@@ -654,21 +626,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation-hubs" class="md-nav__link">
+  <a href="#iii-first-order-postulates-the-abstract-mechanics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implementation Hubs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#session-memory-protocol" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session Memory Protocol
+        III. First-Order Postulates (The Abstract Mechanics)
       
     </span>
   </a>
@@ -679,6 +640,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core-concepts/warscribe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WARScribe Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -760,6 +749,90 @@
     
   
     Platform Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/primordia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primordia Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/inference-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inference Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantum Leap Agents
   
 
     
@@ -1436,63 +1509,28 @@
   
 
 
-<!--
-Sync Impact Report:
-- Version change: 1.0.0 -> 1.1.0
-- Principles: Unchanged (5 core principles)
-- Additions:
-  1. Pre-commit & CI Standards (Quality Gates)
-  2. PR Hygiene Policy (Development Workflow)
-  3. Architecture Documentation (Quality Gates)
-  4. Session Memory requirement (Agent Context)
-- Validated against: 20 active conversations, 37 open PRs, Week 1 Sprint completed
--->
-<h1 id="vindicta-platform-constitution-ratified-v110">Vindicta Platform Constitution (Ratified v1.1.0)<a class="headerlink" href="#vindicta-platform-constitution-ratified-v110" title="Permanent link">&para;</a></h1>
-<h2 id="core-principles">Core Principles<a class="headerlink" href="#core-principles" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>MCP-First Mandate</strong>: Always check for available MCP servers (GitHub, Firebase, etc.) before using CLI tools or manual scripts. <strong>Agents MUST use MCP tools for all File Explorer (filesystem) and GitHub operations</strong> to ensure alignment with platform state. Manual CLI usage is a fallback only when MCP capabilities are exhausted.</li>
-<li><strong>Spec-Driven Development (SDD)</strong>: Every feature implementation MUST start with an SDD bundle in <code>.specify/specs/[ID]-[name]/</code>. Implementation cannot proceed until the SDD bundle is approved and merged into the main branch.</li>
-<li><strong>Economic Prime Directive</strong>: All platform architecture and implementation must strictly comply with the GCP Free Tier. Scaling beyond free tier limits requires an explicit architectural review.</li>
-<li><strong>Zero-Issue Stability</strong>: System stability and technical debt resolution take precedence over new feature development. Maintain a "Zero-Issue State" at all times.</li>
-<li><strong>Vanilla-Forward &amp; Modern Tooling</strong>: Favor vanilla JavaScript (ES2020+) and modern build systems (Vite 7+) over heavy frameworks. Maintain compatibility with modern SDKs and leverage GitHub Actions for CI/CD.</li>
-</ol>
-<h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Specify</strong>: Tech-agnostic user stories and acceptance criteria.</li>
-<li><strong>Clarify</strong>: Three-cycle clarification (Ambiguity, Component Impact, Failure Mode).</li>
-<li><strong>Plan</strong>: Technical architecture, file changes, and risk assessment.</li>
-<li><strong>Tasks</strong>: Dependency-ordered (MODELS -&gt; SERVICES -&gt; ENDPOINTS) task list.</li>
-<li><strong>Implement</strong>: Atomic TDD commits (Red-Green-Refactor).</li>
-<li><strong>Verify</strong>: Verification checklist with evidence.</li>
-</ol>
-<h3 id="pr-hygiene-policy">PR Hygiene Policy<a class="headerlink" href="#pr-hygiene-policy" title="Permanent link">&para;</a></h3>
+<h1 id="the-vindicta-constitution-the-law">The Vindicta Constitution (The Law)<a class="headerlink" href="#the-vindicta-constitution-the-law" title="Permanent link">&para;</a></h1>
+<p><strong>Project Status:</strong> Foundational / Zero-Order Logic
+<strong>Methodology:</strong> Axiom Driven Engineering (ADE)</p>
+<h2 id="i-preamble">I. Preamble<a class="headerlink" href="#i-preamble" title="Permanent link">&para;</a></h2>
+<p>The Vindicta Platform is governed by a Systemic Constitution that prioritizes "Truth" over "Code." All software manifestations (Logi-Slate, Primordia, WARScribe) must adhere to these self-evident laws. Evolution of the platform occurs via the <strong>Amendment Mechanism</strong>, requiring logical validation against Zero-Order Axioms.</p>
+<h2 id="ii-zero-order-axioms-the-physics">II. Zero-Order Axioms (The Physics)<a class="headerlink" href="#ii-zero-order-axioms-the-physics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Org-wide rollout PRs</strong> (cross-references, pre-commit configs) MUST be batch-merged or closed within 48 hours of creation.</li>
-<li><strong>Batch sync PRs</strong> should be merged or rebased promptly; do not let them accumulate.</li>
-<li>PRs that remain open without activity for &gt;7 days should be reviewed for closure or draft conversion.</li>
-<li>Feature branches MUST follow the naming convention: <code>feat/</code>, <code>fix/</code>, <code>chore/</code>, <code>ci/</code>, <code>docs/</code>.</li>
+<li><strong>AX-01 (Entity Identity):</strong> Every object in the simulation (units, terrain, objectives) must possess a unique, immutable identifier and a set of stateful attributes.</li>
+<li><strong>AX-02 (Dimensionality):</strong> All interactions occur within a bounded 3D coordinate system where distances are non-negative scalar values.</li>
+<li><strong>AX-03 (Probability Source):</strong> Outcomes of uncertain events are determined by an object with $N$ faces, each having an equal probability of $1/N$ (The "Die").</li>
+<li><strong>AX-04 (Temporal Discretization):</strong> The simulation progresses through non-overlapping steps (Phases/Turns).</li>
 </ul>
-<h2 id="quality-gates">Quality Gates<a class="headerlink" href="#quality-gates" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Linting &amp; Formatting</strong>: All commits must pass pre-commit hooks and linting checks.</li>
-<li><strong>Test Coverage</strong>: Critical paths must have associated unit or integration tests (&gt;80%).</li>
-<li><strong>Link Integrity</strong>: Documentation must pass markdown link validation at all tiers.</li>
-<li><strong>Agent Context</strong>: Every repository must contain up-to-date <code>.antigravity/</code> context artifacts (<code>ARCHITECTURE.md</code>, <code>CONSTRAINTS.md</code>).</li>
-<li><strong>Pre-commit Standards</strong>: Python repos use Ruff for linting/formatting, commitizen for conventional commits, and gitleaks for secret scanning. Frontend repos use markdownlint-cli2 for docs.</li>
-<li><strong>Architecture Documentation</strong>: All cross-cutting architectural decisions MUST be recorded in Platform-Docs (<code>docs/adr/</code>) before implementation. The C4 workspace DSL in <code>c4/workspace.dsl</code> is the canonical source of truth for system architecture.</li>
-</ol>
-<h2 id="implementation-hubs">Implementation Hubs<a class="headerlink" href="#implementation-hubs" title="Permanent link">&para;</a></h2>
+<h2 id="iii-first-order-postulates-the-abstract-mechanics">III. First-Order Postulates (The Abstract Mechanics)<a class="headerlink" href="#iii-first-order-postulates-the-abstract-mechanics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Governance &amp; Spec Hub</strong>: <a href="https://github.com/vindicta-platform/.specify"><code>.specify</code></a> — Authoritative hub for Spec-Driven Development, templates, and the 100-Spec Campaign.</li>
-<li><strong>Agent &amp; Automation Hub</strong>: <a href="https://github.com/vindicta-platform/.agent"><code>.agent</code></a> — Canonical hub for agent workflows, skills, and platform memory. Provides the master Repository Registry.</li>
+<li><strong>P1-01 (The Translation Postulate):</strong> An entity may change its spatial coordinates (Move) provided the distance $d$ does not exceed a defined limit $L$.</li>
+<li><strong>P1-02 (The Interaction Postulate):</strong> Entity A may affect the state of Entity B (Attack/Buff) if a logical condition (Line of Sight/Range) is met.</li>
+<li><strong>P1-03 (The Unity Postulate):</strong> A "Unit" is a distributed entity of $M$ models that must maintain a geometric "Coherency" defined by the specific Ruleset.</li>
 </ul>
-<h2 id="session-memory-protocol">Session Memory Protocol<a class="headerlink" href="#session-memory-protocol" title="Permanent link">&para;</a></h2>
-<p>Agents MUST update <code>.specify/memory/session-log.md</code> at the end of each working session with:
-- Decisions made and their rationale
-- Active workstreams and their status
-- Blockers and open questions
-- Key file paths and artifact locations</p>
-<p><strong>Version</strong>: 1.1.0 | <strong>Ratified</strong>: 2026-02-06 | <strong>Last Amended</strong>: 2026-02-08</p>
+<hr />
+<blockquote>
+<p><strong>Note:</strong> This constitution supersedes all previous versions.</p>
+</blockquote>
 
 
 
