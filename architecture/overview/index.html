@@ -1558,28 +1558,28 @@
 <li><strong>Project Primordia</strong> serves as the central evaluation and simulation engine.</li>
 <li>Components communicate through well-defined interfaces and shared foundational models.</li>
 </ul>
-<pre class="mermaid"><code>graph TD
+<div class="highlight"><pre><span></span><code>graph TD
     User[User / Player] --&gt; Portal[Vindicta Portal]
     User --&gt; CLI[Vindicta CLI]
 
-    subgraph "Interface Layer"
+    subgraph &quot;Interface Layer&quot;
         Portal
         CLI
         API[Vindicta API]
     end
 
-    subgraph "Core Domain Services"
+    subgraph &quot;Core Domain Services&quot;
         Orchestrator[Orchestrator / Agents]
         Oracle[Meta-Oracle]
         Economy[Economy Engine]
     end
 
-    subgraph "Evaluation &amp; Physics"
+    subgraph &quot;Evaluation &amp; Physics&quot;
         Primordia[Project Primordia]
         Dice[Dice Engine]
     end
 
-    subgraph "Standardization"
+    subgraph &quot;Standardization&quot;
         WARScribe[WARScribe System]
         Foundation[Vindicta Foundation]
     end
@@ -1596,7 +1596,8 @@
 
     WARScribe -.-&gt; Foundation
     Oracle -.-&gt; Foundation
-    Economy -.-&gt; Foundation</code></pre>
+    Economy -.-&gt; Foundation
+</code></pre></div>
 <h2 id="core-modules">Core Modules<a class="headerlink" href="#core-modules" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1645,26 +1646,15 @@
 </tbody>
 </table>
 <h2 id="data-flow">Data Flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>graph TD
-    User([User])
-    Portal[Vindicta Portal]
-    CLI[Vindicta CLI]
-    API[Vindicta API]
-    Orch[Orchestrator]
-    Prim[Project Primordia]
-    Econ[Economy Engine]
-    Oracle[Meta-Oracle]
-    WAR[WARScribe Notation]
-
-    User --&gt; Portal
-    User --&gt; CLI
-    Portal --&gt; API
-    CLI --&gt; API
-    API --&gt; Orch
-    Orch --&gt; Prim
-    Orch --&gt; Econ
-    Orch --&gt; Oracle
-    Prim --&gt; WAR</code></pre>
+<div class="highlight"><pre><span></span><code>User → [Portal/CLI] → API → Orchestrator
+                                  │
+                  ┌───────────────┼───────────────┐
+                  ↓               ↓               ↓
+            Project Primordia   Economy      Meta-Oracle
+                  │
+                  ↓
+           WARScribe Notation
+</code></pre></div>
 <hr />
 <h2 id="deployment-options">Deployment Options<a class="headerlink" href="#deployment-options" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1749,8 +1739,6 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       
